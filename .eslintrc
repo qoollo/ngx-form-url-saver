@@ -1,0 +1,6 @@
+{
+    "extends": [
+      "@vadiminator/eslint-config",
+      "@vadiminator/eslint-config-angular"
+    ]
+}

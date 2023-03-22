@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+    <a mat-button [routerLink]="['/home']" routerLinkActive="active">Register Example</a>
+    <a mat-button [routerLink]="['/second']" routerLinkActive="active">Payment Example</a>
+    <a mat-button [routerLink]="['/third']" routerLinkActive="active">Different Example</a>
+</mat-toolbar>
+
+<mat-drawer-container autosize>
+    <mat-drawer #drawer mode="side" opened>
+        <app-form-url-settings></app-form-url-settings>
+    </mat-drawer>
+    <main class="main">
+        <div>
+            <app-display-navigation></app-display-navigation>
+        </div>
+        <div class="pages">
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+</mat-drawer-container>
+

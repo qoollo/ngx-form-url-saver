@@ -1,0 +1,9 @@
+:host {
+    display: block;
+
+    .form-settings {
+        display: flex;
+        flex-flow: column nowrap;
+        padding: var(--indent-big);
+    }
+}

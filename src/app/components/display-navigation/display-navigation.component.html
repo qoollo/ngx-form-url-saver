@@ -1,0 +1,6 @@
+<mat-card class="display-card">
+    <mat-card-content *ngIf="urlObservable | async as url">
+       <p [innerHTML]="url | boldText: '[^?&\/]+(?=\=)'"></p>
+       <!-- <p *ngIf="strategy === 'united'" [innerHTML]="url | boldText: '(?<=[="])\w+'"></p> -->
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,13 @@
+:root {
+    --indent-base: 5px;
+
+    @for $i from 1 through 20 {
+        --indent-#{$i}:calc(var(--indent-base) * #{$i});
+    }
+
+    --indent-tiny: var(--indent-1);
+    --indent-middle: var(--indent-2);
+    --indent-big: var(--indent-4);
+    --indent-large: var(--indent-6);
+
+}

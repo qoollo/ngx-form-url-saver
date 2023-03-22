@@ -1,0 +1,55 @@
+
+<mat-card>
+    <mat-card-content>
+        <form
+            class="form"
+            *ngIf="formUrlParamsObservable | async as formParams"
+            [ngxFormUrlSaver]="registerForm"
+            [strategy]="formParams.strategy"
+            [debounceTime]="formParams.debounceTime"
+            [queryKey]="formParams.queryKey"
+        >
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput type="text" formControlName="firstName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Second Name</mat-label>
+                <input matInput type="text" formControlName="secondName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Age</mat-label>
+                <input matInput type="number" formControlName="age">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput type="tel" formControlName="phone" pattern="[0-9]{11}">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Country</mat-label>
+                <input matInput type="text" formControlName="country">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <input matInput type="text" formControlName="city">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>date of birth</mat-label>
+                <input matInput type="date" formControlName="birth">
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button
+            mat-raised-button
+            color="primary"
+            (click)="reset()"
+        >
+            clear
+        </button>
+    </mat-card-actions>
+</mat-card>

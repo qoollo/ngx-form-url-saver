@@ -1,0 +1,15 @@
+:host {
+    display: block;
+
+    mat-card {
+        width: max-content;
+        margin: auto;
+
+        .form {
+            display: flex;
+            flex-flow: column;
+            min-width: 400px;
+        }
+
+    }
+}

@@ -1,0 +1,54 @@
+
+<mat-card>
+    <mat-card-content>
+        <form
+            class="form"
+            *ngIf="formUrlParamsObservable | async as formParams"
+            [ngxFormUrlSaver]="paymentForm"
+            [strategy]="formParams.strategy"
+            [debounceTime]="formParams.debounceTime"
+            [queryKey]="formParams.queryKey"
+        >
+        <div formArrayName="payments">
+            <ng-container *ngFor="let payment of payments?.controls; let i = index">
+                <div class="payments-group" [formGroupName]="i">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Card type</mat-label>
+                        <input matInput type="text" formControlName="cardType">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Card number</mat-label>
+                        <input matInput type="text" formControlName="cardNumber">
+                    </mat-form-field>
+                    <button
+                        type="button"
+                        mat-raised-button
+                        color="warn"
+                        (click)="removePayment(i)"
+                    >
+                        delete
+                    </button>
+                </div>
+            </ng-container>
+        </div>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button
+            type="button"
+            mat-raised-button
+            color="primary"
+            (click)="reset()"
+        >
+            clear
+        </button>
+        <button
+            type="button"
+            mat-raised-button
+            color="primary"
+            (click)="addNewPayment()"
+        >
+        add
+    </button>
+    </mat-card-actions>
+</mat-card>

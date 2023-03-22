@@ -1,0 +1,34 @@
+:host {
+    mat-toolbar {
+        gap: var(--indent-middle);
+    }
+
+    mat-drawer-container {
+        height: calc(100vh - var(--indent-6)*2);
+
+        .main {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: var(--indent-large);
+            padding: var(--indent-large);
+            align-items: center;
+            max-width: 90%;
+            margin: auto;
+        }
+
+        .pages {
+            width: 100%;
+        }
+
+    }
+
+    .active {
+        background-color: #324191;
+    }
+
+
+    ::ng-deep .bold {
+        color: rgb(0 255 123);
+    }
+
+}

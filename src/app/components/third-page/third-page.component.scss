@@ -1,0 +1,24 @@
+:host {
+    display: block;
+
+    mat-card {
+        width: max-content;
+        margin: auto;
+
+        .form {
+            display: flex;
+            flex-flow: column;
+            min-width: 400px;
+
+            mat-radio-group {
+                margin: auto;
+            }
+        }
+
+        mat-card-actions {
+            display: flex;
+            gap: var(--indent-middle);
+        }
+
+    }
+}

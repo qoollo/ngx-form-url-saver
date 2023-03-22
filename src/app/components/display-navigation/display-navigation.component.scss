@@ -1,0 +1,15 @@
+:host {
+    display: block;
+    min-width: min-content;
+    margin: auto;
+
+    .display-card {
+        background-color: #3f51b5;
+        color: #FFF;
+        font-size: large;
+
+        p {
+            word-break:break-word;
+        }
+    }
+}

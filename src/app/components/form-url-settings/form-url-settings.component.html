@@ -1,0 +1,21 @@
+<form [formGroup]="formParams" class="form-settings">
+    <mat-form-field appearance="outline">
+        <mat-label>Update time</mat-label>
+        <input matInput type="text" formControlName="debounceTime">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Form's handling strategy</mat-label>
+        <mat-select formControlName="strategy">
+            <mat-option
+                *ngFor="let strategy of formStrategies; trackBy: trackingStrategy"
+                [value]="strategy"
+            >
+            {{strategy}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="formParams.value.strategy === 'united'" appearance="outline">
+        <mat-label>query key</mat-label>
+        <input matInput type="text" formControlName="queryKey">
+    </mat-form-field>
+</form>

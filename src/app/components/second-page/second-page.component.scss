@@ -1,0 +1,25 @@
+:host {
+    display: block;
+
+    mat-card {
+        width: 70%;
+        margin: auto;
+
+        .form {
+            display: flex;
+            flex-flow: column;
+            min-width: 400px;
+        }
+
+        .payments-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+    }
+
+    mat-card-actions {
+        display: flex;
+        gap: var(--indent-middle);
+    }
+}
