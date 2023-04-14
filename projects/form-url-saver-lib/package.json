@@ -1,8 +1,26 @@
 {
     "name": "@qoollo/ngx-form-url-saver",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "description": "Angular directive for syncing form's data with URL query",
-    "keywords": ["Angular", "FormGroup", "query params", "URL syncing", "form to URL"],
+    "keywords": [
+        "Angular",
+        "FormGroup",
+        "query params",
+        "URL syncing",
+        "form to URL",
+        "angular router",
+        "routing",
+        "angular routing",
+        "angular query",
+        "form group",
+        "save to url",
+        "get from url",
+        "state to url",
+        "url state",
+        "url",
+        "url query",
+        "query parameters"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/qoollo/ngx-form-url-saver"
