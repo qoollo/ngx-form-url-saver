@@ -25,21 +25,20 @@ const formDirectiveProvider = {
 
 /**
  * @description
- * Директива является наследником Angular `FormGroupDirective`
- * и используется для автоматической записи значения `FormGroup` в query-параметры.
+ * Directive extends Angular `FormGroupDirective`
+ * and uses sync `FormGroup` data with query-parameters.
  *
  * {@link https://github.com/angular/angular/blob/main/packages/forms/src/directives/reactive_directives/form_group_directive.ts Angular FormGroupDirective}
  *
- * Позволяет установить задержку (_debounce_) обновления query.
+ * - Allows to set debounce time to query update - `debounceTime`
+ * - Can work in two query-parametres creation modes:
+ *  1. `'separated'` - All form's fields will write in separate query-params by its names. E.g ?firstName="Hello"&secondName="World"
+ *  2. `'united'` - All form will be write in one query parameter (with name `form` by default). E.g /?form=%7B"firstName":"","secondName":""%7D
  *
- * Позволяет выбрать способ (_strategy_) записи query-параметров.
- * 'united' - значение формы будет полностью записано в одном параметре
- * 'separated' - каждое поле формы будет записано в своем query-параметре.
- *
- * Существует возможность переопределить поведение по преобразованию значения формы к строке.
- * По умолчанию используется JSON.stringify.
- * Воспользуйтесь интерфейсом ValueHandlingStrategy и FORM_VALUE_HANDLING_TOKEN
- *
+ * There is possibility to override default form's convert to string behavior.
+ * By default used `JSON.stringify`.
+   @see ValueHandlingStrategy
+   @see FORM_VALUE_HANDLING_TOKEN
  */
 @Directive({
     selector: '[ngxFormUrlSaver]',
@@ -53,23 +52,21 @@ export class FormUrlSaverDirective extends FormGroupDirective implements AfterVi
     public override form: UntypedFormGroup = null!;
 
     /**
-     * Время задержки обновления query-параметров
+     * Query time update debounce
      */
     @Input()
     public debounceTime = this.BASE_DEBOUNCE_TIME;
 
     /**
-     * Стратегия создания query-параметров.
-     *
-     * Если указано 'united' - значение формы будет полностью записано по ключу одного query-параметра
-     *
-     * Если указано 'separated' - каждое поле формы будет записано отдельным ключом, соответствующим его названию в форме
+     * Query-parametres creation modes:
+     *  1. `'separated'` - All form's fields will write in separate query-params by its names.
+     *  2. `'united'` - All form will be write in one query parameter (with name `form` by default).
      */
     @Input()
     public strategy: 'united' | 'separated' = 'united';
 
     /**
-     * Ключ, по которому будет записано значение формы, если выбрано 'united' стратегия.
+     * Default query parameter for united strategy
      */
     @Input()
     public queryKey = 'form';

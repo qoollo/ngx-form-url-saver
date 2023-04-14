@@ -1,22 +1,23 @@
 /**
- * Интерфейс для стратегии предобработки едиичного значения формы.
- * Может использоваться для создание кастомных обработчиков для определенных типов данных.
+ *
+ * Interface for single form value preprocessing strategy
+ * Can be used to create custom handlers for certain data types.
  */
 export interface ValueHandlingStrategy {
     /**
-     * Преобразовывает единичное значение формы к строке, которая может быть записана в query
-     * Переопределите этот метод, если хотите получить кастомную стратегию обработки, например, для дат.
+     * Converts a single form value to a string that can be written to a query
+     * Override this method if you want to get a custom processing strategy, for example, for dates.
      *
-     * Метод также получается информация об имени ключа поля в форме.
-     * Если выбран режим 'united', ключ будет undefined
-     * @param value значение одного поля формы
+     * The method also obtains information about the key name of the field in the form.
+     * If 'united' mode is selected, the key will be undefined
+     * @param value single form field value
      */
     stringify(value: unknown, key?: string): string;
 
     /**
-     * Считывает строковое значение одного ключа из query и преобразует к значению, которое можно записать в форму.
-     * Имеет смысл переопределять совместно с stringify, для получения кастомных способов чтения и записи определенных
-     * типов данных.
+     * Reads a single key string value from query and converts it to a value that can be written to a form.
+     * It makes sense to override together with stringify, to get custom ways to read and write certain
+     * data types.
      * @param value
      */
     parse(value: string, key?: string): unknown;

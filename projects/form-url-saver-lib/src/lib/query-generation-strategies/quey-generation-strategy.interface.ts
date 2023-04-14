@@ -3,22 +3,22 @@ import { Params } from '@angular/router';
 export interface QueryGenerationStrategy {
 
     /**
-     * Отвечает за получение значения формы из query-параметров.
-     * Может дополнительно опираться на значение формы, например, чтобы узнать какие ключи в ней присутствуют
-     * @param queryParams значение query-параметров
-     * @param formValue значение формы
+     * Responsible for getting the form value from the query parameters.
+    * Can additionally rely on the value of the form, for example, to find out which keys are present in it
+     * @param queryParams
+     * @param formValue
      */
     inferFormValueFromQuery(queryParams: Params, formValue: Record<string, unknown>): object;
 
     /**
-     * Преобразует значение формы к объекту, который может быть передан в роутер для проставления
-     * query-параметров
+     * Converts the value of the form to an object that can be passed to the router for affixing
+     * query-parameters
      */
     convertFormValueToQueryObject(formValue: Record<string, unknown>): object;
 
     /**
-     * Возвращает объект, который следует передать в роутер для удаления query-параметров.
-     * Может дополнительно опираться на значение формы, например, чтобы узнать какие ключи в ней присутствуют
+     * Returns an object that should be passed to the router to remove query parameters.
+     * Can additionally rely on the value of the form, for example, to find out which keys are present in it
      */
     createClearingObject(formValue: Record<string, unknown>): object;
 }
