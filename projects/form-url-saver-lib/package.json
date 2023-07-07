@@ -1,6 +1,6 @@
 {
     "name": "@qoollo/ngx-form-url-saver",
-    "version": "1.0.5",
+    "version": "1.1.0",
     "description": "Angular directive for syncing form's data with URL query",
     "keywords": [
         "Angular",
@@ -30,8 +30,8 @@
     },
     "license": "MIT",
     "peerDependencies": {
-        "@angular/common": "^15.1.0",
-        "@angular/core": "^15.1.0"
+        "@angular/common": "> 8.0.0 <= 16.0.0",
+        "@angular/core": "> 8.0.0 <= 16.0.0"
     },
     "dependencies": {
         "tslib": "^2.3.0"
